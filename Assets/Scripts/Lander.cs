@@ -109,6 +109,11 @@ public class Lander : MonoBehaviour
             collectedHostage = true;
             collision.transform.parent = transform;
         }
+        //you can kill the player now using this
+        /*
+        if(collision.TryGetComponent<PlayerDies>(out var target))
+        {target.KillPlayer();}
+         */
     }
 
     void Shoot()
