@@ -8,6 +8,6 @@ public class PlayerDies : MonoBehaviour
     public void KillPlayer()
     {
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

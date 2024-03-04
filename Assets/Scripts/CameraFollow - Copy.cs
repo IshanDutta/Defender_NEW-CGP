@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
@@ -12,6 +13,13 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            //restarts level 
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene(currentSceneName);
+        }
         if (Input.GetKeyDown(KeyCode.RightArrow)  && xOffset < 0)
         {
             xOffset = xOffset * -1;
