@@ -28,7 +28,17 @@ public class PlayerProjectile : MonoBehaviour
         //make sure all enemies have DestroyMe script 
         if(other.TryGetComponent<DestroyMe>(out var target))
         {
+            if (other.gameObject.GetComponent<Lander_NEW>())
+            {
+                if(other.gameObject.GetComponent<Lander_NEW>().myHostage != null)
+                {
+                    other.gameObject.GetComponent<Lander_NEW>().DropHostage();
+                }
+
+               
+            }
             target.DestroyEffect();
+            Destroy(gameObject);
         }
     }
 }

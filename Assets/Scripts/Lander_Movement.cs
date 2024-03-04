@@ -14,60 +14,76 @@ public class Lander_Movement : MonoBehaviour
     public Transform ground;
     public float maxDistanceToGround;
     public bool tooFarDown;
+    Lander_NEW lander;
 
     void Start()
     {
         distanceToTarg = transform.position.y - ground.position.y;
 
         latestDirectionChangeTime = 0f;
+        lander = GetComponent<Lander_NEW>();
         calcuateNewMovementVector();
+
+        if(horizontalMovement > 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else if (horizontalMovement < 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
     }
 
     void calcuateNewMovementVector()
     {
         //create a random direction vector with the magnitude of 1, later multiply it with the velocity of the enemy
 
-        if (movementDirection.y == 0)
-        {
+      
+            if (movementDirection.y == 0)
+            {
 
 
-            if (distanceToTarg > maxDistanceToGround)
-            {
-                movementDirection = new Vector2(horizontalMovement, -1).normalized;
-            }   
-            else
-            {
-                if (!tooFarDown)
+                if (distanceToTarg > maxDistanceToGround && !tooFarDown)
                 {
-                    movementDirection = new Vector2(horizontalMovement, Random.Range(-1.0f, 1.0f)).normalized;
+                    movementDirection = new Vector2(horizontalMovement, -1).normalized;
                 }
                 else
                 {
-                    movementDirection = new Vector2(horizontalMovement, 1).normalized;
+                    if (!tooFarDown)
+                    {
+                        movementDirection = new Vector2(horizontalMovement, Random.Range(-1.0f, 1.0f)).normalized;
+                    }
+                    else
+                    {
+                        movementDirection = new Vector2(horizontalMovement, 1).normalized;
+                    }
                 }
             }
-        }
-        else
-        {
-            movementDirection = new Vector2(horizontalMovement, 0).normalized;
-        }
+            else
+            {
+                movementDirection = new Vector2(horizontalMovement, 0).normalized;
+            }
 
-        directionChangeTime = Random.Range(3, 7);
+            directionChangeTime = Random.Range(3, 7);
+        
     }
 
     void Update()
     {
-        //if the changeTime was reached, calculate a new movement vector
-        if (Time.time - latestDirectionChangeTime > directionChangeTime)
+        if (lander.landerState == Lander_NEW.LanderState.patrol)
         {
-            latestDirectionChangeTime = Time.time;
-            calcuateNewMovementVector();
+            //if the changeTime was reached, calculate a new movement vector
+            if (Time.time - latestDirectionChangeTime > directionChangeTime)
+            {
+                latestDirectionChangeTime = Time.time;
+                calcuateNewMovementVector();
+            }
+
+            distanceToTarg = transform.position.y - ground.position.y;
+            //move enemy: 
+            transform.position = new Vector2(transform.position.x + (movementDirection.x * speed * Time.deltaTime), transform.position.y + (movementDirection.y * Time.deltaTime));
         }
-
-        distanceToTarg = transform.position.y - ground.position.y;
-        //move enemy: 
-        transform.position = new Vector2(transform.position.x + (movementDirection.x * speed * Time.deltaTime), transform.position.y + (movementDirection.y * Time.deltaTime));
-
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
