@@ -9,8 +9,9 @@ public class PlayerShip : MonoBehaviour
     public float speed;
     float horizontal;
     float vertical;
+    public float interia;
     public Vector3 moveDirection;
-
+    public float lerpedHorizontal;
     public Gun _gun;
     private void Start()
     {
@@ -21,9 +22,11 @@ public class PlayerShip : MonoBehaviour
     {
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
-        moveDirection = new Vector3(horizontal, vertical, 0);
+        lerpedHorizontal = Mathf.Lerp(lerpedHorizontal, horizontal, interia * Time.deltaTime);
+        moveDirection = new Vector3(lerpedHorizontal, vertical, 0);
         transform.position += moveDirection * speed * Time.deltaTime;
 
+        
         if (horizontal < 0)
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);
@@ -39,6 +42,13 @@ public class PlayerShip : MonoBehaviour
             Debug.Log("pressed fire!");
             _gun.FireGun();
         }
-
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            Debug.Log("Hyperspace");
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("Bomb");
+        }
     }
 }

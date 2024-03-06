@@ -4160,7 +4160,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2017885161}
   speed: 10
+  interia: 2.5
   moveDirection: {x: 0, y: 0, z: 0}
+  lerpedHorizontal: 0
   _gun: {fileID: 2017885163}
 --- !u!114 &2017885163
 MonoBehaviour:
