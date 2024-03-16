@@ -4166,9 +4166,10 @@ MonoBehaviour:
   moveDirection: {x: 0, y: 0, z: 0}
   lerpedHorizontal: 0
   _gun: {fileID: 2017885163}
+  _playerDies: {fileID: 2017885169}
   bombcount: 0
-  onScreenEmpty: {fileID: 0}
-  onScreenCollider: {fileID: 0}
+  onScreenEmpty: {fileID: 2043428850}
+  _OnScreen: {fileID: 2043428853}
 --- !u!114 &2017885163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4337,7 +4338,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7f89434694aa2e48a0b2edd6d0ffb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies: []
+  publicIsOnScreen: 0
+  onScreenEnemies: []
 --- !u!1 &2060740375
 GameObject:
   m_ObjectHideFlags: 0

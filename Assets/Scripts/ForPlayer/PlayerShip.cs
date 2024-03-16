@@ -14,16 +14,18 @@ public class PlayerShip : MonoBehaviour
     public Vector3 moveDirection;
     public float lerpedHorizontal;
     public Gun _gun;
+    public PlayerDies _playerDies;
 
     public int bombcount = 3;
     public GameObject onScreenEmpty;
+    public OnScreen _OnScreen;
+    //private bool localIsOnScreen;
 
     private int odds;
 
     private void Start()
     {
         onScreenEmpty = GameObject.Find("OnScreenEmpty");
-        onScreenCollider = onScreenEmpty.GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -57,7 +59,8 @@ public class PlayerShip : MonoBehaviour
             odds = Random.Range(1, 4);
             if(odds == 1)
             {
-                //Player.GetComponent<OnScreen>().PlayerDies;
+                _playerDies = GetComponent<PlayerDies>();
+                _playerDies.KillPlayer();
             }
             else if (odds > 1)
             {
@@ -65,9 +68,15 @@ public class PlayerShip : MonoBehaviour
             }
 
         }
-        if (Input.GetKeyDown(KeyCode.E) && bombcount > 0)
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("Bomb");
+
+            Debug.Log("pressed E for Bomb");
+            // && bombcount > 0
+
+            _OnScreen = onScreenEmpty.GetComponent<OnScreen>();
+            _OnScreen.DestroyObjectsinList();
+            //localIsOnScreen = _OnScreen.publicIsOnScreen;
         }
         else
         {
