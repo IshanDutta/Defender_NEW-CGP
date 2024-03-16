@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerShip : MonoBehaviour
 {
+    public GameObject Player;
     public Rigidbody2D rb;
     public float speed;
     float horizontal;
@@ -13,8 +14,16 @@ public class PlayerShip : MonoBehaviour
     public Vector3 moveDirection;
     public float lerpedHorizontal;
     public Gun _gun;
+
+    public int bombcount = 3;
+    public GameObject onScreenEmpty;
+
+    private int odds;
+
     private void Start()
     {
+        onScreenEmpty = GameObject.Find("OnScreenEmpty");
+        onScreenCollider = onScreenEmpty.GetComponent<Collider2D>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -45,11 +54,26 @@ public class PlayerShip : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X))
         {
             Debug.Log("Hyperspace");
+            odds = Random.Range(1, 4);
+            if(odds == 1)
+            {
+                //Player.GetComponent<OnScreen>().PlayerDies;
+            }
+            else if (odds > 1)
+            {
+                transform.position = new Vector3(Random.Range(-30.0f, 30.0f), Random.Range(-1.0f, 3.0f), 0);
+            }
+
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && bombcount > 0)
         {
             Debug.Log("Bomb");
         }
+        else
+        {
+            Debug.Log("no bombs left");
+            return;
+        }
     }
-    
+
 }
