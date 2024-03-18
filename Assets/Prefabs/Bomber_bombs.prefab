@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 989166356, guid: 955bb543c344a0b41b0ba16f84805cda, type: 3}
+  m_Sprite: {fileID: -630738686, guid: 955bb543c344a0b41b0ba16f84805cda, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -96,9 +96,9 @@ GameObject:
   - component: {fileID: 7338464092815250551}
   - component: {fileID: 6262599799596078660}
   - component: {fileID: 4132977422167675135}
-  - component: {fileID: 3753798969973138403}
+  - component: {fileID: 3252518932551347395}
   m_Layer: 0
-  m_Name: Lander_projectile
+  m_Name: Bomber_bombs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,7 +114,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.2090917, y: -2.554237, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.9900393, y: 2.9900393, z: 2.9900393}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6044182390256917563}
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e2edd00b1ae65a4ebad8e76d6f8d6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 0
   myEnemy: {fileID: 0}
 --- !u!50 &6262599799596078660
 Rigidbody2D:
@@ -193,7 +193,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0038855076, y: 0}
+  m_Offset: {x: -0.0010701567, y: 0.0032866504}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -204,9 +204,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.17633677, y: 0.17633724}
+  m_Size: {x: 0.1293309, y: 0.12928687}
   m_EdgeRadius: 0
---- !u!114 &3753798969973138403
+--- !u!114 &3252518932551347395
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

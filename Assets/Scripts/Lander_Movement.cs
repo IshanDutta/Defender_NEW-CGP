@@ -6,7 +6,7 @@ using UnityEngine.Experimental.GlobalIllumination;
 public class Lander_Movement : MonoBehaviour
 {
     private float latestDirectionChangeTime;
-    private float directionChangeTime = 3f;
+    public float directionChangeTime = 3f;
     public float speed = 2f;
     private Vector2 movementDirection;
     public int horizontalMovement;
@@ -15,11 +15,14 @@ public class Lander_Movement : MonoBehaviour
     public float maxDistanceToGround;
     public bool tooFarDown;
     Lander_NEW lander;
+    public BackgroundScroller backGround;
+    PlayerShip player;
 
     void Start()
     {
         distanceToTarg = transform.position.y - ground.position.y;
-
+        backGround = GameObject.Find("Background").GetComponent<BackgroundScroller>();
+        player = GameObject.Find("Player").GetComponent<PlayerShip>();
         latestDirectionChangeTime = 0f;
         lander = GetComponent<Lander_NEW>();
         calcuateNewMovementVector();
@@ -92,6 +95,37 @@ public class Lander_Movement : MonoBehaviour
         {
             tooFarDown = true;
             calcuateNewMovementVector();
+        }
+
+        if (collision.transform == backGround.leftBorder)
+        {
+            if(horizontalMovement == -1)
+            {
+                transform.position = new Vector2(backGround.rightBorder.transform.position.x, transform.position.y);
+            }
+        }else if(collision.transform == backGround.rightBorder)
+        {
+            if (horizontalMovement == 1)
+            {
+                transform.position = new Vector2(backGround.leftBorder.transform.position.x, transform.position.y);
+            }
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.transform == backGround.leftBorder)
+        {
+            if (horizontalMovement == 1 && player.horizontal > 0.5f)
+            {
+                transform.position = new Vector2(backGround.leftBorder.transform.position.x, transform.position.y);
+            }
+        }else if(collision.transform == backGround.rightBorder)
+        {
+            if (horizontalMovement == -1 && player.horizontal < 0.5f)
+            {
+                transform.position = new Vector2(backGround.rightBorder.transform.position.x, transform.position.y);
+            }
         }
     }
 

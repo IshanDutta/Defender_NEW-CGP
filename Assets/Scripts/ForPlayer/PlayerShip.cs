@@ -8,7 +8,7 @@ public class PlayerShip : MonoBehaviour
     public GameObject Player;
     public Rigidbody2D rb;
     public float speed;
-    float horizontal;
+    public float horizontal;
     float vertical;
     public float interia;
     public Vector3 moveDirection;

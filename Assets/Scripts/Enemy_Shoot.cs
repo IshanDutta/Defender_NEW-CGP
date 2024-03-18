@@ -1,19 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class Enemy_Shoot : MonoBehaviour
 {
 
     public Transform firePoint;
-    public float fireRate;
-    float timeSinceLastFire;
+    public float maxFireRate;
+    public float minFireRate;
+    public float timeSinceLastFire;
     public GameObject bulletPrefab;
-    private GameObject player;
+    [HideInInspector]public GameObject player;
+    public float spread;
 
     private void Start()
     {
         player = GameObject.Find("Player");
+        timeSinceLastFire = Random.RandomRange(minFireRate, maxFireRate);
     }
 
 
@@ -29,22 +33,8 @@ public class Enemy_Shoot : MonoBehaviour
     public void Shoot()
     {
 
-        timeSinceLastFire = fireRate;
-        float spread = Random.RandomRange(-30, 30);
-        Quaternion newRot = firePoint.rotation;
-
-        Vector3 dir = player.transform.position - firePoint.position;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        firePoint.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-
-        // Then add "addedOffset" to whatever rotation axis the player must rotate on
-        newRot = Quaternion.Euler(firePoint.transform.localEulerAngles.x,
-            firePoint.transform.localEulerAngles.y,
-            firePoint.transform.localEulerAngles.z + spread);
-
-            Instantiate(bulletPrefab, firePoint.position, newRot);
-
-
+        GameObject go = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        go.GetComponent<Projectile>().myEnemy = this;
+        timeSinceLastFire = Random.RandomRange(minFireRate, maxFireRate);
     }
 }

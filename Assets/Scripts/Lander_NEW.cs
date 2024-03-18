@@ -14,6 +14,7 @@ public class Lander_NEW : MonoBehaviour
     public float checkRate;
     float lastChecked;
     public GameObject mutant;
+    public bool isBomber;
 
     // Start is called before the first frame update
     void Start()
@@ -28,11 +29,12 @@ public class Lander_NEW : MonoBehaviour
         {
             lastChecked -= Time.deltaTime;
 
-            if (lastChecked < 0)
+            if (lastChecked < 0 && !isBomber)
             {
                 CheckForHostage();
             }
-        }else if(landerState == LanderState.attemptToPickUp)
+        }
+        else if(landerState == LanderState.attemptToPickUp)
         {
             transform.Translate(Vector2.down * landerMovement.speed * Time.deltaTime);
 
@@ -40,7 +42,8 @@ public class Lander_NEW : MonoBehaviour
             {
                 landerState = LanderState.patrol;
             }
-        }else if(landerState == LanderState.pickUp)
+        }
+        else if(landerState == LanderState.pickUp)
         {
             transform.Translate(Vector2.up * landerMovement.speed * Time.deltaTime);
 

@@ -5,6 +5,14 @@ using UnityEngine;
 public class PlayerDies : MonoBehaviour
 {
     [SerializeField] GameObject explosionPrefab;
+    public Transform backGround;
+    public InteractableForRespawn[] moveables;
+
+    private void Start()
+    {
+        backGround = GameObject.Find("Background").transform;
+
+    }
     public void KillPlayer()
     {
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
@@ -20,13 +28,38 @@ public class PlayerDies : MonoBehaviour
     }
     IEnumerator RespawnDelay()
     {
-        yield return new WaitForSeconds(3f);
 
+        yield return new WaitForSeconds(3f);
+        MoveEverythingOnRespawn();
         // This line will be executed after 3 seconds passed
         GetComponent<Renderer>().enabled = true;
         GetComponent<PlayerShip>().enabled = true;
         //reset pos
         gameObject.transform.position = new Vector3 (0, 0, 0);
+        StartCoroutine(UnParent());
     }
+
+    IEnumerator UnParent()
+    {
+        yield return new WaitForSeconds(0.5f);
+        moveables = GameObject.FindObjectsOfType<InteractableForRespawn>();
+        foreach (InteractableForRespawn child in moveables)
+        {
+            if (child != null)
+            {
+                child.transform.parent = null;
+            }
+        }
+    }
+
+    void MoveEverythingOnRespawn()
+    {
+        moveables = GameObject.FindObjectsOfType<InteractableForRespawn>();
+        foreach (InteractableForRespawn child in moveables)
+        {
+            child.transform.parent = backGround;
+        }
+    }
+
 
 }

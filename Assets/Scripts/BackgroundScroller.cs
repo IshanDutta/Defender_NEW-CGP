@@ -6,7 +6,10 @@ public class BackgroundScroller : MonoBehaviour
 {
     public Transform target;
     public float offset;
+    public float divider;
     private Material mat;
+    public Transform leftBorder;
+    public Transform rightBorder;
 
     void Start()
     {
@@ -16,7 +19,7 @@ public class BackgroundScroller : MonoBehaviour
 
     void Update()
     {
-        mat.SetTextureOffset("_MainTex", new Vector2(target.position.x/50, 0));
+        mat.SetTextureOffset("_MainTex", new Vector2(target.position.x/divider, 0));
         transform.position = new Vector2(target.position.x, 0);
     }
 }

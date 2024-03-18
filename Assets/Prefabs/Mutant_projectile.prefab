@@ -96,9 +96,9 @@ GameObject:
   - component: {fileID: 7338464092815250551}
   - component: {fileID: 6262599799596078660}
   - component: {fileID: 4132977422167675135}
-  - component: {fileID: 3753798969973138403}
+  - component: {fileID: -6517202125088509975}
   m_Layer: 0
-  m_Name: Lander_projectile
+  m_Name: Mutant_projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e2edd00b1ae65a4ebad8e76d6f8d6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 9
   myEnemy: {fileID: 0}
 --- !u!50 &6262599799596078660
 Rigidbody2D:
@@ -193,7 +193,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0038855076, y: 0}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -204,9 +204,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.17633677, y: 0.17633724}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3753798969973138403
+--- !u!114 &-6517202125088509975
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

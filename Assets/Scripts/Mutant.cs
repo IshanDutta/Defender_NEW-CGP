@@ -7,9 +7,11 @@ public class Mutant : MonoBehaviour
     Transform player;
     public float speed;
 
+
     // Start is called before the first frame update
     void Start()
     {
+        transform.rotation = Quaternion.Euler(Vector3.zero);
         player = GameObject.Find("Player").transform;
     }
 
