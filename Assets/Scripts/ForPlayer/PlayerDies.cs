@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayerDies : MonoBehaviour
@@ -16,10 +15,6 @@ public class PlayerDies : MonoBehaviour
     }
     public void KillPlayer()
     {
-        //temp solution to respawning bugs
-        string currentSceneName = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(currentSceneName);
-        /*
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         //disable image and move script so player essentially "dies"
         //cant use set active or else player dies script wont work 
@@ -29,7 +24,7 @@ public class PlayerDies : MonoBehaviour
         //a lil delay before respawn
 
         //if(lives => 0) { }
-        StartCoroutine(RespawnDelay());*/
+        StartCoroutine(RespawnDelay());
     }
     IEnumerator RespawnDelay()
     {

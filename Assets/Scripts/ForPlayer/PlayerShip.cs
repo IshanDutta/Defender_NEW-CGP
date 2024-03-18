@@ -31,13 +31,6 @@ public class PlayerShip : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            //restarts level 
-            string currentSceneName = SceneManager.GetActiveScene().name;
-            SceneManager.LoadScene(currentSceneName);
-        }
-
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
         lerpedHorizontal = Mathf.Lerp(lerpedHorizontal, horizontal, interia * Time.deltaTime);
@@ -71,7 +64,7 @@ public class PlayerShip : MonoBehaviour
             }
             else if (odds > 1)
             {
-                transform.position = new Vector3(Random.Range(-50.0f, 30.0f), Random.Range(-2.0f, 2.0f), 0);
+                transform.position = new Vector3(Random.Range(-30.0f, 30.0f), Random.Range(-1.0f, 3.0f), 0);
             }
 
         }
