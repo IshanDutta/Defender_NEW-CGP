@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3616931903539568660}
   - component: {fileID: 9193187191447715620}
   - component: {fileID: 3360288273291637083}
+  - component: {fileID: -3014369424347576246}
   m_Layer: 0
   m_Name: Mutant
   m_TagString: Untagged
@@ -152,6 +153,7 @@ MonoBehaviour:
   firePoint: {fileID: 6087025409064807005}
   maxFireRate: 1
   minFireRate: 2
+  timeSinceLastFire: 0
   bulletPrefab: {fileID: 4838536295375848312, guid: 20cb5d170c6d56441858694d08f6e95e, type: 3}
   player: {fileID: 0}
   spread: 0
@@ -176,6 +178,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-3014369424347576246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7282397078910689166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1fad071f1d4db945a78788c05a5e3ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notLander: 1
 --- !u!1 &8202288914168650883
 GameObject:
   m_ObjectHideFlags: 0
