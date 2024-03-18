@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class PlayerDies : MonoBehaviour
@@ -7,7 +8,11 @@ public class PlayerDies : MonoBehaviour
     [SerializeField] GameObject explosionPrefab;
     public void KillPlayer()
     {
-        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        //temp solution to respawning bugs
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentSceneName);
+    }
+        /*Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         //disable image and move script so player essentially "dies"
         //cant use set active or else player dies script wont work 
         GetComponent<Renderer>().enabled = false;
@@ -27,6 +32,6 @@ public class PlayerDies : MonoBehaviour
         GetComponent<PlayerShip>().enabled = true;
         //reset pos
         gameObject.transform.position = new Vector3 (0, 0, 0);
-    }
+    }*/
 
 }

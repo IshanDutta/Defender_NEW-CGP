@@ -14,12 +14,7 @@ public class CameraFollow : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            //restarts level 
-            string currentSceneName = SceneManager.GetActiveScene().name;
-            SceneManager.LoadScene(currentSceneName);
-        }
+        
         if (Input.GetKeyDown(KeyCode.RightArrow)  && xOffset < 0)
         {
             xOffset = xOffset * -1;
