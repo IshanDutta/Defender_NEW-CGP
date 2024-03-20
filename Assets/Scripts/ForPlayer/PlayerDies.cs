@@ -21,11 +21,18 @@ public class PlayerDies : MonoBehaviour
         //cant use set active or else player dies script wont work 
         GetComponent<Renderer>().enabled = false;
         GetComponent<PlayerShip>().enabled = false;
+        GetComponent<Collider2D>().enabled = false;
 
         //a lil delay before respawn
 
         //if(lives => 0) { }
         StartCoroutine(RespawnDelay());
+        StartCoroutine(DyingDelay());
+    }
+    IEnumerator DyingDelay()
+    {
+        yield return new WaitForSeconds(3f);
+        GetComponent<Collider2D>().enabled = true;
     }
     IEnumerator RespawnDelay()
     {
@@ -38,6 +45,7 @@ public class PlayerDies : MonoBehaviour
         //reset pos
         gameObject.transform.position = new Vector3 (0, 0, 0);
         StartCoroutine(UnParent());
+        StartCoroutine(DyingDelay());
     }
 
     IEnumerator UnParent()
