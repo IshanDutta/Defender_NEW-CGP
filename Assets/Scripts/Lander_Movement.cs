@@ -98,6 +98,16 @@ public class Lander_Movement : MonoBehaviour
         }
     }
 
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 6)
+        {
+            tooFarDown = true;
+            calcuateNewMovementVector();
+        }
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.gameObject.layer == 6)

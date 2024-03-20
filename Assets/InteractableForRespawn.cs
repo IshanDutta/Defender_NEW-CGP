@@ -42,4 +42,26 @@ public class InteractableForRespawn : MonoBehaviour
         }
     }
 
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (notLander)
+        {
+            if (timer < 0)
+            {
+                if (collision.transform == background.leftBorder.transform)
+                {
+
+                    transform.position = new Vector3(background.rightBorder.position.x, transform.position.y, transform.position.z);
+                    timer = 1f;
+                }
+                else if (collision.transform == background.rightBorder.transform)
+                {
+                    transform.position = new Vector3(background.leftBorder.position.x, transform.position.y, transform.position.z);
+                    timer = 1f;
+                }
+            }
+        }
+    }
+
 }

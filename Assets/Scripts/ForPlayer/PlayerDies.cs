@@ -8,6 +8,7 @@ public class PlayerDies : MonoBehaviour
     public Transform backGround;
     public InteractableForRespawn[] moveables;
 
+
     private void Start()
     {
         backGround = GameObject.Find("Background").transform;

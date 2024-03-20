@@ -20,6 +20,6 @@ public class BackgroundScroller : MonoBehaviour
     void Update()
     {
         mat.SetTextureOffset("_MainTex", new Vector2(target.position.x/divider, 0));
-        transform.position = new Vector2(target.position.x, 0);
+        transform.position = new Vector3(target.position.x, 0, 10.72f);
     }
 }
