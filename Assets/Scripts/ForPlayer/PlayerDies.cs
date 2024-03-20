@@ -27,7 +27,6 @@ public class PlayerDies : MonoBehaviour
 
         //if(lives => 0) { }
         StartCoroutine(RespawnDelay());
-        StartCoroutine(DyingDelay());
     }
     IEnumerator DyingDelay()
     {
