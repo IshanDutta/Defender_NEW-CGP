@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 6262599799596078660}
   - component: {fileID: 4132977422167675135}
   - component: {fileID: 3252518932551347395}
+  - component: {fileID: 8954706820659991728}
   m_Layer: 0
   m_Name: Bomber_bombs
   m_TagString: Untagged
@@ -219,3 +220,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 3180242142141540936, guid: 894bbf7e444d2f240a77f4241ee329a2, type: 3}
+--- !u!114 &8954706820659991728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4838536295375848312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1fad071f1d4db945a78788c05a5e3ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notLander: 1
