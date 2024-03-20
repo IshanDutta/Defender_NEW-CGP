@@ -96,37 +96,6 @@ public class Lander_Movement : MonoBehaviour
             tooFarDown = true;
             calcuateNewMovementVector();
         }
-
-        if (collision.transform == backGround.leftBorder)
-        {
-            if(horizontalMovement == -1)
-            {
-                transform.position = new Vector2(backGround.rightBorder.transform.position.x, transform.position.y);
-            }
-        }else if(collision.transform == backGround.rightBorder)
-        {
-            if (horizontalMovement == 1)
-            {
-                transform.position = new Vector2(backGround.leftBorder.transform.position.x, transform.position.y);
-            }
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.transform == backGround.leftBorder)
-        {
-            if (horizontalMovement == 1 && player.horizontal > 0.5f)
-            {
-                transform.position = new Vector2(backGround.leftBorder.transform.position.x, transform.position.y);
-            }
-        }else if(collision.transform == backGround.rightBorder)
-        {
-            if (horizontalMovement == -1 && player.horizontal < 0.5f)
-            {
-                transform.position = new Vector2(backGround.rightBorder.transform.position.x, transform.position.y);
-            }
-        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
