@@ -19,13 +19,18 @@ public class PlayerShip : MonoBehaviour
     public int bombcount = 3;
     public GameObject onScreenEmpty;
     public OnScreen _OnScreen;
+    //public DestroyMe _DestroyMe;
+    public GameObject _UI;
+    public BombUI _BombUI;
     //private bool localIsOnScreen;
 
     private int odds;
 
     private void Start()
     {
-        onScreenEmpty = GameObject.Find("OnScreenEmpty");
+        onScreenEmpty = GameObject.Find("Main Camera");
+        _UI = GameObject.Find("UI");
+        
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -68,14 +73,17 @@ public class PlayerShip : MonoBehaviour
             }
 
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && bombcount > 0)
         {
-
             Debug.Log("pressed E for Bomb");
-            // && bombcount > 0
 
+            _BombUI = _UI.GetComponent<BombUI>();
+            _BombUI.ChangeBombCount();
+
+            /*
             _OnScreen = onScreenEmpty.GetComponent<OnScreen>();
             _OnScreen.DestroyObjectsinList();
+            _OnScreen.Test();*/
             //localIsOnScreen = _OnScreen.publicIsOnScreen;
         }
         else

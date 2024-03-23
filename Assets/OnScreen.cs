@@ -6,17 +6,17 @@ public class OnScreen : MonoBehaviour
 {
     public bool publicIsOnScreen;
     public List<GameObject> onScreenEnemies = new List<GameObject>();
-    private DestroyMe _DestroyEffect;
+    public DestroyMe _DestroyMe;
 
     // Start is called before the first frame update
-    void Start()
+    // Update is called once per frame
+    private void Start()
     {
         
     }
-
-    // Update is called once per frame
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.O))
         {
             foreach (var x in onScreenEnemies)
@@ -29,17 +29,9 @@ public class OnScreen : MonoBehaviour
     {
         if (other.TryGetComponent<DestroyMe>(out var target))
         {
-            publicIsOnScreen = true;
-
             //add enemy to list of enemies 
             onScreenEnemies.Add(other.gameObject);
-            
-            /*target.DestroyEffect();
-            Destroy(gameObject);*/
-        }
-        else
-        {
-            publicIsOnScreen = false;
+            target.IsOnScreen = true;
         }
     }
     private void OnTriggerExit2D(Collider2D other)
@@ -47,6 +39,7 @@ public class OnScreen : MonoBehaviour
         if (other.TryGetComponent<DestroyMe>(out var target))
         {
             onScreenEnemies.Remove(other.gameObject);
+            target.IsOnScreen = false;
         }
 
     }
@@ -55,8 +48,12 @@ public class OnScreen : MonoBehaviour
         Debug.Log("attempted to destroy objects in list");
         foreach(GameObject enemy in onScreenEnemies)
         {
-            _DestroyEffect = enemy.GetComponent<DestroyMe>();
-            _DestroyEffect.DestroyEffect();
+            _DestroyMe = enemy.GetComponent<DestroyMe>();
+            _DestroyMe.DestroyEffect();
         }
+    }
+    public void Test()
+    {
+        Debug.Log("test for onscreen");
     }
 }
