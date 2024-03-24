@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PlayerShip : MonoBehaviour
 {
     public GameObject Player;
@@ -22,6 +22,8 @@ public class PlayerShip : MonoBehaviour
     //public DestroyMe _DestroyMe;
     public GameObject _UI;
     public BombUI _BombUI;
+    public int score;
+    public Text scoreText;
     //private bool localIsOnScreen;
 
     private int odds;
@@ -32,6 +34,18 @@ public class PlayerShip : MonoBehaviour
         _UI = GameObject.Find("UI");
         
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    public void UpdateScore(int amt)
+    {
+        score += amt;
+
+        if(score <= 0)
+        {
+            score = 0;
+        }
+
+        scoreText.text = score.ToString();
     }
 
     void Update()

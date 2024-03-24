@@ -23,6 +23,7 @@ public class Lander_Movement : MonoBehaviour
         distanceToTarg = transform.position.y - ground.position.y;
         backGround = GameObject.Find("Background").GetComponent<BackgroundScroller>();
         player = GameObject.Find("Player").GetComponent<PlayerShip>();
+        ground =backGround.transform.Find("Ground");
         latestDirectionChangeTime = 0f;
         lander = GetComponent<Lander_NEW>();
         calcuateNewMovementVector();

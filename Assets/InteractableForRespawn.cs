@@ -7,26 +7,24 @@ public class InteractableForRespawn : MonoBehaviour
     public bool notLander;
     public float timer;
     BackgroundScroller background;
+    Transform mainParent;
 
     // Start is called before the first frame update
     void Start()
     {
         background = GameObject.Find("Background").GetComponent<BackgroundScroller>();
+        mainParent = transform.parent;
     }
 
     // Update is called once per frame
     void Update()
     {
         timer -= Time.deltaTime;
-
-
     }
-
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (notLander && transform.parent == null)
+        if (notLander && transform.parent == mainParent)
         {
             if (timer < 0)
             {
