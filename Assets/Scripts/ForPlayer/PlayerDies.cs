@@ -37,28 +37,14 @@ public class PlayerDies : MonoBehaviour
     {
 
         yield return new WaitForSeconds(3f);
-        MoveEverythingOnRespawn();
         // This line will be executed after 3 seconds passed
         GetComponent<Renderer>().enabled = true;
         GetComponent<PlayerShip>().enabled = true;
         //reset pos
         gameObject.transform.position = new Vector3 (0, 0, 0);
-        StartCoroutine(UnParent());
         StartCoroutine(DyingDelay());
     }
 
-    IEnumerator UnParent()
-    {
-        yield return new WaitForSeconds(0.5f);
-        moveables = GameObject.FindObjectsOfType<InteractableForRespawn>();
-        foreach (InteractableForRespawn child in moveables)
-        {
-            if (child != null)
-            {
-                child.transform.parent = null;
-            }
-        }
-    }
 
     void MoveEverythingOnRespawn()
     {

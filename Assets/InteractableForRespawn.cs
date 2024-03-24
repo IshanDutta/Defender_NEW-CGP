@@ -5,7 +5,7 @@ using UnityEngine;
 public class InteractableForRespawn : MonoBehaviour
 {
     public bool notLander;
-    float timer;
+    public float timer;
     BackgroundScroller background;
 
     // Start is called before the first frame update
@@ -18,12 +18,15 @@ public class InteractableForRespawn : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
+
+
     }
+
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (notLander)
+        if (notLander && transform.parent == null)
         {
             if (timer < 0)
             {
@@ -45,7 +48,7 @@ public class InteractableForRespawn : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (notLander)
+        if (notLander && transform.parent == null)
         {
             if (timer < 0)
             {

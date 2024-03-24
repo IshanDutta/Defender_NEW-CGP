@@ -60,16 +60,20 @@ public class PlayerShip : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.X))
         {
+            onScreenEmpty.GetComponent<CameraFollow>().doLerp = false;
             Debug.Log("Hyperspace");
             odds = Random.Range(1, 4);
             if(odds == 1)
             {
                 _playerDies = GetComponent<PlayerDies>();
                 _playerDies.KillPlayer();
+                onScreenEmpty.GetComponent<CameraFollow>().doLerp = true;
             }
             else if (odds > 1)
             {
                 transform.position = new Vector3(Random.Range(-30.0f, 30.0f), Random.Range(-1.0f, 3.0f), 0);
+                onScreenEmpty.GetComponent<CameraFollow>().TeleportCam();
+                onScreenEmpty.GetComponent<CameraFollow>().doLerp = true;
             }
 
         }
@@ -80,16 +84,7 @@ public class PlayerShip : MonoBehaviour
             _BombUI = _UI.GetComponent<BombUI>();
             _BombUI.ChangeBombCount();
 
-            /*
-            _OnScreen = onScreenEmpty.GetComponent<OnScreen>();
-            _OnScreen.DestroyObjectsinList();
-            _OnScreen.Test();*/
-            //localIsOnScreen = _OnScreen.publicIsOnScreen;
-        }
-        else
-        {
-            Debug.Log("no bombs left");
-            return;
+            onScreenEmpty.GetComponent<OnScreen>().ActivateBomb();
         }
     }
 

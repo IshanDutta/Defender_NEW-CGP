@@ -6,8 +6,6 @@ public class DestroyMe : MonoBehaviour
 {
     [SerializeField] GameObject explosionPrefab;
     public bool IsOnScreen;
-    public int bombCount;
-    public GameObject PlayerShip;
     public PlayerShip _PlayerShip;
     
     public void DestroyEffect()
@@ -17,20 +15,7 @@ public class DestroyMe : MonoBehaviour
     }
     public void Start()
     {
-        PlayerShip = GameObject.Find("Player");
-        PlayerShip.GetComponent<PlayerShip>();
+        _PlayerShip = GameObject.Find("Player").GetComponent<PlayerShip>();
     }
 
-    public void Update()
-    {
-        bombCount = PlayerShip.bombcount;
-        //three conditions must be met
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if ((bombCount > 3) && (IsOnScreen = true))
-            {
-                DestroyEffect();
-            }
-        }
-    }
 }

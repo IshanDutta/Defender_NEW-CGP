@@ -5,8 +5,9 @@ using UnityEngine;
 public class OnScreen : MonoBehaviour
 {
     public bool publicIsOnScreen;
-    public List<GameObject> onScreenEnemies = new List<GameObject>();
+    public List<Transform> onScreenEnemies = new List<Transform>();
     public DestroyMe _DestroyMe;
+    public PlayerShip player;
 
     // Start is called before the first frame update
     // Update is called once per frame
@@ -14,42 +15,32 @@ public class OnScreen : MonoBehaviour
     {
         
     }
-    void Update()
-    {
-
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            foreach (var x in onScreenEnemies)
-            {
-                Debug.Log("this lander is on screen: " + x.ToString());
-            }
-        }
-    }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.TryGetComponent<DestroyMe>(out var target))
+        if (other.TryGetComponent<DestroyMe>(out var target) && !other.GetComponent<Projectile>())
         {
             //add enemy to list of enemies 
-            onScreenEnemies.Add(other.gameObject);
+            onScreenEnemies.Add(other.transform);
             target.IsOnScreen = true;
         }
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.TryGetComponent<DestroyMe>(out var target))
+        if (other.TryGetComponent<DestroyMe>(out var target) && !other.GetComponent<Projectile>())
         {
-            onScreenEnemies.Remove(other.gameObject);
+            onScreenEnemies.Remove(other.transform);
             target.IsOnScreen = false;
         }
 
     }
-    public void DestroyObjectsinList()
+
+    public void ActivateBomb()
     {
-        Debug.Log("attempted to destroy objects in list");
-        foreach(GameObject enemy in onScreenEnemies)
+        for (int i = 0; i < onScreenEnemies.Count; i++)
         {
-            _DestroyMe = enemy.GetComponent<DestroyMe>();
-            _DestroyMe.DestroyEffect();
+            print("hi");
+            onScreenEnemies[i].GetComponent<DestroyMe>().DestroyEffect();
+            i -= 1;
         }
     }
     public void Test()
