@@ -45,7 +45,7 @@ public class PlayerShip : MonoBehaviour
         
         potentialmovepos = transform.position + moveDirection * speed * Time.deltaTime;
         yval = potentialmovepos.y;
-        yval = Mathf.Clamp(yval, -4.5f, 2.5f);
+        yval = Mathf.Clamp(yval, -4.5f, 3f);
         transform.position = new Vector3(potentialmovepos.x, yval, potentialmovepos.z);
 
         if (horizontal < 0)
@@ -83,7 +83,6 @@ public class PlayerShip : MonoBehaviour
             onScreenEmpty.GetComponent<CameraFollow>().doLerp = true;
 
         }
-
         if (Input.GetKeyDown(KeyCode.E))
         {
             if(i != 3)

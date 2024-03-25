@@ -4483,7 +4483,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.980194, y: 47.08591}
+  m_Offset: {x: 2.980194, y: 46.516853}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4494,7 +4494,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 11.692741, y: 95.17182}
+  m_Size: {x: 11.692741, y: 96.30994}
   m_EdgeRadius: 0
 --- !u!4 &1206656856
 Transform:
@@ -6414,6 +6414,7 @@ MonoBehaviour:
   - {fileID: 829210548}
   - {fileID: 2138693966}
   bombcount: 3
+  i: 0
   onScreenEmpty: {fileID: 0}
   _OnScreen: {fileID: 0}
 --- !u!114 &2017885163
@@ -6464,7 +6465,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2017885159}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -7071,7 +7072,7 @@ GameObject:
   - component: {fileID: 2138693969}
   - component: {fileID: 2138693968}
   m_Layer: 5
-  m_Name: PxssyDestroyer
+  m_Name: PxussyDestroyer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
