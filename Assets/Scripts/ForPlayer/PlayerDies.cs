@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerDies : MonoBehaviour
 {
     [SerializeField] GameObject explosionPrefab;
     public Transform backGround;
     public InteractableForRespawn[] moveables;
-
+    public GameObject[] lives;
+    public int i = 0;
+    public AudioSource died;
 
     private void Start()
     {
@@ -16,12 +19,22 @@ public class PlayerDies : MonoBehaviour
     }
     public void KillPlayer()
     {
+        
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         //disable image and move script so player essentially "dies"
         //cant use set active or else player dies script wont work 
         GetComponent<Renderer>().enabled = false;
         GetComponent<PlayerShip>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
+        Destroy(lives[i]);
+        i++;
+        if(i == 3)
+        {
+            died.Play();
+            Invoke("DelayedAction", 3f);
+               
+        }
+
 
         //a lil delay before respawn
 
@@ -68,6 +81,9 @@ public class PlayerDies : MonoBehaviour
             child.transform.parent = backGround;
         }
     }
-
+    void DelayedAction()
+    {
+        SceneManager.LoadScene("Death");
+    }
 
 }
