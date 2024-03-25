@@ -17,6 +17,7 @@ public class Projectile : MonoBehaviour
 
 
         direction = new Vector3(direction.x, direction.y + spread, 0);
+        Destroy(gameObject, 15);
     }
 
     // Update is called once per frame

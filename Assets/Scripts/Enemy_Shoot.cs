@@ -13,6 +13,9 @@ public class Enemy_Shoot : MonoBehaviour
     public GameObject bulletPrefab;
     [HideInInspector]public GameObject player;
     public float spread;
+    public bool isBomber;
+    public float distance;
+    
 
     private void Start()
     {
@@ -25,9 +28,24 @@ public class Enemy_Shoot : MonoBehaviour
     {
         timeSinceLastFire -= Time.deltaTime;
 
-        if(timeSinceLastFire < 0)
+        distance = Vector3.Distance(player.transform.position, transform.position);
+
+        if (!isBomber)
         {
-            Shoot();
+            if (distance < 35)
+            {
+                if (timeSinceLastFire < 0)
+                {
+                    Shoot();
+                }
+            }
+        }
+        else
+        {
+            if (timeSinceLastFire < 0)
+            {
+                Shoot();
+            }
         }
     }
     public void Shoot()

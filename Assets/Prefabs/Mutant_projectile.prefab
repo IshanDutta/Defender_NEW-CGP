@@ -219,3 +219,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 3180242142141540936, guid: 894bbf7e444d2f240a77f4241ee329a2, type: 3}
+  IsOnScreen: 0
+  _PlayerShip: {fileID: 0}
+  pointsToAward: 10

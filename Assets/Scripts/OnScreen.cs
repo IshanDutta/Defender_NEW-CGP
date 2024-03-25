@@ -5,58 +5,46 @@ using UnityEngine;
 public class OnScreen : MonoBehaviour
 {
     public bool publicIsOnScreen;
-    public List<GameObject> onScreenEnemies = new List<GameObject>();
-    private DestroyMe _DestroyEffect;
+    public List<Transform> onScreenEnemies = new List<Transform>();
+    public DestroyMe _DestroyMe;
+    public PlayerShip player;
 
     // Start is called before the first frame update
-    void Start()
+    // Update is called once per frame
+    private void Start()
     {
         
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            foreach (var x in onScreenEnemies)
-            {
-                Debug.Log("this lander is on screen: " + x.ToString());
-            }
-        }
-    }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.TryGetComponent<DestroyMe>(out var target))
+        if (other.TryGetComponent<DestroyMe>(out var target) && !other.GetComponent<Projectile>())
         {
-            publicIsOnScreen = true;
-
             //add enemy to list of enemies 
-            onScreenEnemies.Add(other.gameObject);
-            
-            /*target.DestroyEffect();
-            Destroy(gameObject);*/
-        }
-        else
-        {
-            publicIsOnScreen = false;
+            onScreenEnemies.Add(other.transform);
+            target.IsOnScreen = true;
         }
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.TryGetComponent<DestroyMe>(out var target))
+        if (other.TryGetComponent<DestroyMe>(out var target) && !other.GetComponent<Projectile>())
         {
-            onScreenEnemies.Remove(other.gameObject);
+            onScreenEnemies.Remove(other.transform);
+            target.IsOnScreen = false;
         }
 
     }
-    public void DestroyObjectsinList()
+
+    public void ActivateBomb()
     {
-        Debug.Log("attempted to destroy objects in list");
-        foreach(GameObject enemy in onScreenEnemies)
+        for (int i = 0; i < onScreenEnemies.Count; i++)
         {
-            _DestroyEffect = enemy.GetComponent<DestroyMe>();
-            _DestroyEffect.DestroyEffect();
+            print("hi");
+            onScreenEnemies[i].GetComponent<DestroyMe>().DestroyEffect();
+            i -= 1;
         }
+    }
+    public void Test()
+    {
+        Debug.Log("test for onscreen");
     }
 }

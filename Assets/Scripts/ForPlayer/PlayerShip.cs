@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PlayerShip : MonoBehaviour
 {
     public GameObject Player;
@@ -19,14 +19,33 @@ public class PlayerShip : MonoBehaviour
     public int bombcount = 3;
     public GameObject onScreenEmpty;
     public OnScreen _OnScreen;
+    //public DestroyMe _DestroyMe;
+    public GameObject _UI;
+    public BombUI _BombUI;
+    public int score;
+    public Text scoreText;
     //private bool localIsOnScreen;
 
     private int odds;
 
     private void Start()
     {
-        onScreenEmpty = GameObject.Find("OnScreenEmpty");
+        onScreenEmpty = GameObject.Find("Main Camera");
+        _UI = GameObject.Find("UI");
+        
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    public void UpdateScore(int amt)
+    {
+        score += amt;
+
+        if(score <= 0)
+        {
+            score = 0;
+        }
+
+        scoreText.text = score.ToString();
     }
 
     void Update()
@@ -55,33 +74,31 @@ public class PlayerShip : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.X))
         {
+            onScreenEmpty.GetComponent<CameraFollow>().doLerp = false;
             Debug.Log("Hyperspace");
             odds = Random.Range(1, 4);
             if(odds == 1)
             {
                 _playerDies = GetComponent<PlayerDies>();
                 _playerDies.KillPlayer();
+                onScreenEmpty.GetComponent<CameraFollow>().doLerp = true;
             }
             else if (odds > 1)
             {
                 transform.position = new Vector3(Random.Range(-30.0f, 30.0f), Random.Range(-1.0f, 3.0f), 0);
+                onScreenEmpty.GetComponent<CameraFollow>().TeleportCam();
+                onScreenEmpty.GetComponent<CameraFollow>().doLerp = true;
             }
 
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && bombcount > 0)
         {
-
             Debug.Log("pressed E for Bomb");
-            // && bombcount > 0
 
-            _OnScreen = onScreenEmpty.GetComponent<OnScreen>();
-            _OnScreen.DestroyObjectsinList();
-            //localIsOnScreen = _OnScreen.publicIsOnScreen;
-        }
-        else
-        {
-            Debug.Log("no bombs left");
-            return;
+            _BombUI = _UI.GetComponent<BombUI>();
+            _BombUI.ChangeBombCount();
+
+            onScreenEmpty.GetComponent<OnScreen>().ActivateBomb();
         }
     }
 

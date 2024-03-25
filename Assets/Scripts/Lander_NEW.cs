@@ -122,8 +122,9 @@ public class Lander_NEW : MonoBehaviour
 
     void Mutate()
     {
-        Instantiate(mutant, transform.position, transform.rotation);
-        mutant.transform.rotation = Quaternion.Euler(Vector3.zero);
+        GameObject go = Instantiate(mutant, transform.position, transform.rotation);
+        go.transform.parent = transform.parent;
+        go.transform.rotation = Quaternion.Euler(Vector3.zero);
         Destroy(gameObject);
     }
 
