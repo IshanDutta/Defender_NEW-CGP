@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbod: {fileID: 7969971792068580450}
-  speed: 50
+  speed: 100
   duration: 0.25
 --- !u!50 &7969971792068580450
 Rigidbody2D:

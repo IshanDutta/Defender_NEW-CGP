@@ -53,10 +53,10 @@ public class OnScreen : MonoBehaviour
     public void DestroyObjectsinList()
     {
         Debug.Log("attempted to destroy objects in list");
-        foreach(GameObject enemy in onScreenEnemies)
+        for (int i = 0; i < onScreenEnemies.Count; i++)
         {
-            _DestroyEffect = enemy.GetComponent<DestroyMe>();
-            _DestroyEffect.DestroyEffect();
+            onScreenEnemies[i].GetComponent<DestroyMe>().DestroyEffect();
+            i -= 1;
         }
     }
 }

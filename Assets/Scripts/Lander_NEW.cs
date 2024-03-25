@@ -110,6 +110,14 @@ public class Lander_NEW : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+        if (landerState == LanderState.attemptToPickUp && myHostage != null)
+        {
+            if (collision.gameObject == myHostage)
+            {
+                PickUp();
+
+            }
+        }
         if (collision.gameObject.layer == 8)
         {
             if (landerState == LanderState.pickUp)

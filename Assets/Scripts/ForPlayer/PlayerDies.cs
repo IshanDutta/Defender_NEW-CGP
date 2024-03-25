@@ -19,7 +19,7 @@ public class PlayerDies : MonoBehaviour
     }
     public void KillPlayer()
     {
-        
+
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         //disable image and move script so player essentially "dies"
         //cant use set active or else player dies script wont work 
@@ -43,20 +43,28 @@ public class PlayerDies : MonoBehaviour
     }
     IEnumerator DyingDelay()
     {
+        
+
         yield return new WaitForSeconds(3f);
         GetComponent<Collider2D>().enabled = true;
+        //turn lerping back on
+        
     }
     IEnumerator RespawnDelay()
     {
 
         yield return new WaitForSeconds(3f);
-        MoveEverythingOnRespawn();
+        Camera.main.GetComponent<CameraFollow>().doLerp = false;
+        //MoveEverythingOnRespawn();
         // This line will be executed after 3 seconds passed
         GetComponent<Renderer>().enabled = true;
         GetComponent<PlayerShip>().enabled = true;
         //reset pos
         gameObject.transform.position = new Vector3 (0, 0, 0);
-        StartCoroutine(UnParent());
+
+        Camera.main.GetComponent<CameraFollow>().TeleportCam();
+        Camera.main.GetComponent<CameraFollow>().doLerp = true;
+        //StartCoroutine(UnParent());
         StartCoroutine(DyingDelay());
     }
 

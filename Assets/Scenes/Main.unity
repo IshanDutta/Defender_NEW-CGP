@@ -897,7 +897,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0014727991, y: 0.02358985}
+  m_Offset: {x: -5.3130174, y: 0.023590088}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -908,7 +908,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.019090421, y: 9.950197}
+  m_Size: {x: 10.64807, y: 9.950197}
   m_EdgeRadius: 0
 --- !u!1 &348480401 stripped
 GameObject:
@@ -1005,7 +1005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1fad071f1d4db945a78788c05a5e3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notLander: 0
+  notLander: 1
 --- !u!1 &362670365
 GameObject:
   m_ObjectHideFlags: 0
@@ -1345,7 +1345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5869cef935223cb44abfad3201a48aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followSpeed: 2
+  followSpeed: 3
   target: {fileID: 2017885168}
   xOffset: 5
   doLerp: 0
@@ -1515,7 +1515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1fad071f1d4db945a78788c05a5e3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notLander: 0
+  notLander: 1
 --- !u!1 &568249865
 GameObject:
   m_ObjectHideFlags: 0
@@ -2061,7 +2061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1fad071f1d4db945a78788c05a5e3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notLander: 0
+  notLander: 1
 --- !u!1 &749114945
 GameObject:
   m_ObjectHideFlags: 0
@@ -2171,7 +2171,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0014727991, y: 0.02358985}
+  m_Offset: {x: 6.304305, y: 0.023590088}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2182,7 +2182,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.019090421, y: 9.950197}
+  m_Size: {x: 12.624756, y: 9.950197}
   m_EdgeRadius: 0
 --- !u!1 &762184334
 GameObject:
@@ -2357,7 +2357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1fad071f1d4db945a78788c05a5e3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notLander: 0
+  notLander: 1
 --- !u!1 &789324578
 GameObject:
   m_ObjectHideFlags: 0
@@ -2653,7 +2653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1fad071f1d4db945a78788c05a5e3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notLander: 0
+  notLander: 1
 --- !u!1 &798790866
 GameObject:
   m_ObjectHideFlags: 0
@@ -2935,7 +2935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1fad071f1d4db945a78788c05a5e3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notLander: 0
+  notLander: 1
 --- !u!1 &829210548
 GameObject:
   m_ObjectHideFlags: 0
@@ -3168,7 +3168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1fad071f1d4db945a78788c05a5e3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notLander: 0
+  notLander: 1
 --- !u!1 &876799390
 GameObject:
   m_ObjectHideFlags: 0
@@ -4264,7 +4264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1fad071f1d4db945a78788c05a5e3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notLander: 0
+  notLander: 1
 --- !u!1 &1066486277
 GameObject:
   m_ObjectHideFlags: 0
@@ -4478,7 +4478,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.653638, y: 0}
+  m_Offset: {x: 2.980194, y: 47.08591}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4489,7 +4489,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.8001766, y: 1}
+  m_Size: {x: 11.692741, y: 95.17182}
   m_EdgeRadius: 0
 --- !u!4 &1206656856
 Transform:
@@ -4499,12 +4499,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1206656854}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: 5.13, z: -20}
-  m_LocalScale: {x: 20.338, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0.7071068, w: 0}
+  m_LocalPosition: {x: 6.37, y: 20, z: -5.1246514}
+  m_LocalScale: {x: 2.2597768, y: 0.9594929, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 581253051}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1213584425
 PrefabInstance:
@@ -5384,7 +5384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1fad071f1d4db945a78788c05a5e3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notLander: 0
+  notLander: 1
 --- !u!1 &1504493164
 GameObject:
   m_ObjectHideFlags: 0
@@ -5608,7 +5608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1fad071f1d4db945a78788c05a5e3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notLander: 0
+  notLander: 1
 --- !u!1001 &1725270087
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6339,6 +6339,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7946108851951447028, guid: 99282b5977f5612439658cde3d35ea20, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7946108851951447028, guid: 99282b5977f5612439658cde3d35ea20, type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4340981584453066727, guid: 99282b5977f5612439658cde3d35ea20, type: 3}
     m_RemovedGameObjects: []
@@ -6384,11 +6392,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b32fb71081217e4785319e58f1c5c3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  potentialmovepos: {x: 0, y: 0, z: 0}
+  yval: 0
+  maxvertical: 0
   Player: {fileID: 0}
   rb: {fileID: 2017885161}
-  speed: 10
+  speed: 15
   horizontal: 0
-  interia: 5
+  interia: 3
   moveDirection: {x: 0, y: 0, z: 0}
   lerpedHorizontal: 0
   _gun: {fileID: 2017885163}
@@ -6444,7 +6455,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2017885159}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -6763,7 +6774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1fad071f1d4db945a78788c05a5e3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notLander: 0
+  notLander: 1
 --- !u!1 &2107108489
 GameObject:
   m_ObjectHideFlags: 0
@@ -7478,6 +7489,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7602822329461834606, guid: 7041a6a9e3d73bf49b9d55678e3be4bc, type: 3}
+      propertyPath: m_Size.x
+      value: 2.0387192
+      objectReference: {fileID: 0}
+    - target: {fileID: 7602822329461834606, guid: 7041a6a9e3d73bf49b9d55678e3be4bc, type: 3}
+      propertyPath: m_Size.y
+      value: 58.058533
+      objectReference: {fileID: 0}
+    - target: {fileID: 7602822329461834606, guid: 7041a6a9e3d73bf49b9d55678e3be4bc, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.1062327
+      objectReference: {fileID: 0}
+    - target: {fileID: 7602822329461834606, guid: 7041a6a9e3d73bf49b9d55678e3be4bc, type: 3}
+      propertyPath: m_Offset.y
+      value: -28.529266
+      objectReference: {fileID: 0}
     - target: {fileID: 8275736986038837844, guid: 7041a6a9e3d73bf49b9d55678e3be4bc, type: 3}
       propertyPath: m_Name
       value: Background
@@ -7488,6 +7515,9 @@ PrefabInstance:
     - {fileID: 1016653049963119903, guid: 7041a6a9e3d73bf49b9d55678e3be4bc, type: 3}
     - {fileID: 537037808440410915, guid: 7041a6a9e3d73bf49b9d55678e3be4bc, type: 3}
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 3845525806292977870, guid: 7041a6a9e3d73bf49b9d55678e3be4bc, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 1206656856}
     - targetCorrespondingSourceObject: {fileID: 3845525806292977870, guid: 7041a6a9e3d73bf49b9d55678e3be4bc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 758952955}
@@ -7535,7 +7565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1fad071f1d4db945a78788c05a5e3ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notLander: 0
+  notLander: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -7563,7 +7593,6 @@ SceneRoots:
   - {fileID: 7097561837794875935}
   - {fileID: 1434914432}
   - {fileID: 643569591}
-  - {fileID: 1206656856}
   - {fileID: 3940759126822901498}
   - {fileID: 814365616}
   - {fileID: 2083789584}
