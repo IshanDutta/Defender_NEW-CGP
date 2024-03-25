@@ -11,11 +11,13 @@ public class CameraFollow : MonoBehaviour
     public Transform target;
     public float xOffset = 1f;
     public bool doLerp;
-
+    private void Start()
+    {
+        doLerp = true;
+    }
     // Update is called once per frame
     void Update()
     {
-
         if (doLerp)
         {
 
@@ -52,5 +54,10 @@ public class CameraFollow : MonoBehaviour
             Vector3 newpos = new Vector3(target.position.x + xOffset, 1f, -20f);
             transform.position = new Vector3(newpos.x, 0, newpos.z);
         }
+    }
+    public void TeleportCam()
+    {
+        Vector3 newpos = new Vector3(target.position.x + xOffset, 1f, -20f);
+        transform.position = new Vector3(newpos.x, 0, newpos.z);
     }
 }
