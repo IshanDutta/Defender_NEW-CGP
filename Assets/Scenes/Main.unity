@@ -1237,6 +1237,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48283d06713088e44a2ae63b36b5b49c, type: 3}
+--- !u!1 &499246777 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 642053740292550530, guid: 48283d06713088e44a2ae63b36b5b49c, type: 3}
+  m_PrefabInstance: {fileID: 499246776}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2948,7 +2953,7 @@ GameObject:
   - component: {fileID: 829210551}
   - component: {fileID: 829210550}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: Smart Bomb 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6404,6 +6409,10 @@ MonoBehaviour:
   lerpedHorizontal: 0
   _gun: {fileID: 2017885163}
   _playerDies: {fileID: 0}
+  bombs:
+  - {fileID: 499246777}
+  - {fileID: 829210548}
+  - {fileID: 2138693966}
   bombcount: 3
   onScreenEmpty: {fileID: 0}
   _OnScreen: {fileID: 0}
@@ -7062,7 +7071,7 @@ GameObject:
   - component: {fileID: 2138693969}
   - component: {fileID: 2138693968}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: PxssyDestroyer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

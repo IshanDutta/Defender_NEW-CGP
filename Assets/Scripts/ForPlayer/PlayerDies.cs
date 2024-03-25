@@ -26,6 +26,7 @@ public class PlayerDies : MonoBehaviour
         GetComponent<Renderer>().enabled = false;
         GetComponent<PlayerShip>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
+
         Destroy(lives[i]);
         i++;
         if(i == 3)

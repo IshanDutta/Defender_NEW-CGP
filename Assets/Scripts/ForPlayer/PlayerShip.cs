@@ -20,7 +20,9 @@ public class PlayerShip : MonoBehaviour
     public Gun _gun;
     public PlayerDies _playerDies;
 
-    public int bombcount = 3;
+    public GameObject[] bombs;
+    public int bombcount = 0;
+    public int i = 0;
     public GameObject onScreenEmpty;
     public OnScreen _OnScreen;
     //private bool localIsOnScreen;
@@ -81,22 +83,22 @@ public class PlayerShip : MonoBehaviour
             onScreenEmpty.GetComponent<CameraFollow>().doLerp = true;
 
         }
-        if (Input.GetKeyDown(KeyCode.E) && bombcount > 0)
-        {
 
-            Debug.Log("pressed E for Bomb");
-            // && bombcount > 0
-
-            _OnScreen = onScreenEmpty.GetComponent<OnScreen>();
-            _OnScreen.DestroyObjectsinList();
-            bombcount -= 1;
-            //localIsOnScreen = _OnScreen.publicIsOnScreen;
-        }
-        else
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("no bombs left");
-            return;
+            if(i != 3)
+            {
+
+                Debug.Log("pressed E for Bomb");
+
+                _OnScreen = onScreenEmpty.GetComponent<OnScreen>();
+                _OnScreen.DestroyObjectsinList();
+
+                Destroy(bombs[i]);
+                i++;               
+            }
         }
+        
     }
 
 }
